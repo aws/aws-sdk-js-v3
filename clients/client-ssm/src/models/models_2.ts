@@ -1498,7 +1498,7 @@ export interface UpdateResourceDataSyncResult {}
  */
 export interface UpdateServiceSettingRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service setting to reset. For example,
+   * <p>The Amazon Resource Name (ARN) of the service setting to update. For example,
    *     <code>arn:aws:ssm:us-east-1:111122223333:servicesetting/ssm/parameter-store/high-throughput-enabled</code>.
    *    The setting ID can be one of the following.</p>
    *          <ul>
@@ -1543,6 +1543,9 @@ export interface UpdateServiceSettingRequest {
    *                </p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>Permissions to update the <code>/ssm/managed-instance/default-ec2-instance-management-role</code> setting should only be provided to administrators. Implement least privilege access when allowing individuals to configure or modify the Default Host Management Configuration.</p>
+   *          </note>
    */
   SettingId: string | undefined;
 
@@ -1552,12 +1555,17 @@ export interface UpdateServiceSettingRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role: The name of an IAM role</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>/ssm/automation/customer-script-log-destination</code>: <code>CloudWatch</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>/ssm/automation/customer-script-log-group-name</code>: the name of an Amazon CloudWatch Logs log group</p>
+   *                   <code>/ssm/automation/customer-script-log-group-name</code>: The name of an Amazon CloudWatch Logs log group</p>
    *             </li>
    *             <li>
    *                <p>

@@ -8565,6 +8565,11 @@ export interface ResetServiceSettingRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>/ssm/automation/customer-script-log-destination</code>
    *                </p>
    *             </li>

@@ -3243,9 +3243,11 @@ export interface PatchRuleGroup {
  * @public
  */
 export enum OperatingSystem {
+  AlmaLinux = "ALMA_LINUX",
   AmazonLinux = "AMAZON_LINUX",
   AmazonLinux2 = "AMAZON_LINUX_2",
   AmazonLinux2022 = "AMAZON_LINUX_2022",
+  AmazonLinux2023 = "AMAZON_LINUX_2023",
   CentOS = "CENTOS",
   Debian = "DEBIAN",
   MacOS = "MACOS",
